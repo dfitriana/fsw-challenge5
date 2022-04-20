@@ -33,7 +33,7 @@ body {
 	height: 100vh;
 }
 .fixed-menu {
-	/* width: 80px; */
+	/* width: 80px!important; */
 	width: inherit;
 	background-color: var(--bg-primary);
 }

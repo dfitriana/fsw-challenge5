@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "",
+    "username": "postgres",
     "password": "pastibisa",
     "database": "db_fswchallenge5",
     "host": "127.0.0.1",
