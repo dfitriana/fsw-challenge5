@@ -10,7 +10,7 @@
 
 const express = require("express"); //inisiasi variable yang berisi express
 const router = express.Router(); // inisiasi variable yang berisi fungsi router express
-const { list, create, update } = require("../controller/carController");
+const { list, create, update } = require("../controller/carViewController");
 
 // ------------------------------------------
 

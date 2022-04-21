@@ -11,10 +11,10 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      price: {
+      rentPrice: {
         type: Sequelize.INTEGER
       },
-      size: {
+      type: {
         type: Sequelize.STRING
       },
       image: {
