@@ -18,14 +18,14 @@
     <main>
         <div class="row mx-0">
             <!-- Side Menu -->
-            <%- include('menu') %>
+            <%- include('../menubar/menu.ejs') %>
                 <!-- End Side Menu -->
                 <div class="rigth-wrap col-md-11 px-0">
                     <!-- Navbar -->
-                    <%- include('navbar') %>
+                    <%- include('../menubar/navbar.ejs') %>
                         <!-- End Navbar -->
                         <div class="row">
-                            <%- include('sidebar') %>
+                            <%- include('../menubar/sidebar.ejs') %>
                                 <!-- Main Body -->
                                 <div class="col-md-10">
                                     <div class="main">
@@ -34,7 +34,7 @@
                                                 Cars
                                             </span>
                                             <img src="./images/Vector_right.png" alt="">
-                                            <% if (url=="home" || url=="/" ) { %>
+                                            <% if ("/" ) { %>
                                                 <span class="active fs-12">List Car</span>
                                                 <% var isTitle=true %>
                                                     <% } else { %>

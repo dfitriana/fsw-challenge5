@@ -1,18 +1,20 @@
-// var express = require('express');   //inisiasi variable yang berisi express
-// var router = express.Router();    // inisiasi variable yang berisi fungsi router express
+var express = require('express');
+var router = express.Router();
+const CarControl = require("../controller/carController");
+const { cars } = require("../models");
 
-// /* GET home page. */
+/* GET home page. */
 // router.get('/', function(req, res, next) {
 //   res.render('index', { title: 'Express' });
 // });
+router.get("/", CarControl.getAllCars);
 
-// module.exports = router;    // export fungsi router agar module lain bisa membaca file ini
+router.get("/cars/create", function (req, res, next) {
+  res.render("cars/createCar", {title: "Add New Car"});
+});
+router.get("/cars/update/:id", function (req, res, next) {
+  res.render("cars/updateCar", {title: "Update Car Information"});
+});
+router.use("/cars", require('./car'));
 
-const express = require("express"); //inisiasi variable yang berisi express
-const router = express.Router(); // inisiasi variable yang berisi fungsi router express
-const view = require("./car");
-
-// ------------------------------------------
-router.use("/", view);
-
-module.exports = router; // export fungsi router agar module lain bisa membaca file ini
+module.exports = router;
