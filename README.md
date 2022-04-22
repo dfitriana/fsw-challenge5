@@ -3,7 +3,7 @@ challenge chapter5 full stack developer binar academy
 
 
 # ERD
-![image.png](/images/erd.png)
+![image.png]({/public/images/erd.png})
 
 # Client
 Halaman Index (GET) = http://localhost:3000/
