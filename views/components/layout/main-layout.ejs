@@ -35,7 +35,7 @@
                 <div class="breadcrumb d-flex align-items-center gap-2">
                   <span class="fs-12"> Cars </span>
                   <img src="/images/Vector_right.png" alt="" />
-                  <% if ("/" ) { %>
+                  <% if (url=="/" ) { %>
                   <span class="active fs-12">List Car</span>
                   <% var isTitle=true %> 
                   <% } else { %>
@@ -45,7 +45,7 @@
                     >
                   </span>
                   <img src="/images/Vector_right.png" alt="" />
-                  <span class="active fs-12"> <%= title %> </span>
+                  <span class="active fs-12"> <%= title%> </span>
                   <% } %>
                 </div>
                 <!-- <% if (!isTitle) { %>

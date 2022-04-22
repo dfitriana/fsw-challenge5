@@ -10,7 +10,7 @@ const { cars } = require("../models");
 router.get("/", CarControl.getAllCars);
 
 router.get("/cars/create", function (req, res, next) {
-  res.render("cars/createCar", { title: "Create Car" });
+  res.render("cars/createCar", { url: req.url, title: "Add New Car" });
 });
 router.get("/cars/update/:id", CarControl.editCars);
 

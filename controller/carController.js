@@ -9,7 +9,7 @@ module.exports = class {
       console.log("Silahkan Lengkapi data");
     }
     if (errors.length > 0) {
-      res.render("cars/createCar", { errors, title: "Create Car" });
+      res.render("cars/createCar", { errors, url: req.url, title: "Add New Car" });
     } else {
       cars
         .create({
@@ -20,7 +20,7 @@ module.exports = class {
         })
         .then((result) => {
           errors.push({ msg: "Data berhasil ditambahkan" });
-          res.render("cars/createCar", { errors, result, title: "Create Car" });
+          res.render("cars/createCar", { errors, result, url: req.url, title: "Add New Car" });
           // res.send({data: result});
         })
         .catch((err) => {
@@ -33,7 +33,7 @@ module.exports = class {
     cars
       .findAll()
       .then((result) => {
-        res.render("cars/index", { ListCars: result });
+        res.render("cars/index", { ListCars: result, url: "/" });
         // res.send({ ListCars : result });
       })
       .catch((err) => {
@@ -46,7 +46,7 @@ module.exports = class {
       .findByPk(id)
       .then((result) => {
         console.log(result);
-        res.render("cars/updateCar", { data: result, title: "Update Car" });
+        res.render("cars/updateCar", { data: result, url: req.url, title: "Update Car" });
         // res.status(200).send(
         //   {data : result}
         // )
@@ -71,6 +71,7 @@ module.exports = class {
             errors,
             data: req.body,
             title: "Update Car",
+            url: req.url,
           });
         } else {
           res.redirect(`${id}`);
