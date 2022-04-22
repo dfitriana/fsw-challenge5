@@ -20,6 +20,7 @@ module.exports = class {
     cars.findAll()
       .then((result) => {
         res.render("cars/index", { ListCars : result });
+        // res.send({ ListCars : result });
       })
       .catch((err) => {
         res.status(400).send(err);

@@ -22,17 +22,22 @@
     <div class="row">
         <!-- Card -->
         <% for (let data of ListCars){%>
+            <% var date=new Date(data.updatedAt) %>
         <div class="col-md-4 mt-4">
             <div class="card">
                 <img src="/images/image_1.png" class="card-img" alt="Car Image">
                 <div class="card-body p-0">
                     <h5 class="card-title mt-3 mb-1 fs-14"><%= data.name%> / <%= data.type%></h5>
-                    <p class="card-harga mb-1 fs-16">Rp <%= data.rentPrice%> / hari</p>
+                    <p class="card-harga mb-1 fs-16">Rp <%= data.rentPrice/1000 %>.000 / hari</p>
                     <div class="card-info mt-3">
                         <div class="info">
                             <p class="clock d-flex fs-14">
                                 <img class="me-2" src="/images/fi_clock.png" alt="clock icon">
-                                <span class="ml-2"><%= data.updatedAt%></span>
+                                <span class="ml-2">Updated at <%= date.getDate() %>
+                                    <%= date.toLocaleString( undefined, { month:'short',
+                                        year:'numeric' } ) %>, <%=
+                                            date.toLocaleTimeString(undefined, {hour12: true,
+                                            hour: '2-digit' , minute:'2-digit'}) %></span>
                             </p>
                         </div>
                     </div>
