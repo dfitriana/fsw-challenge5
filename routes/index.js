@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 const CarControl = require("../controller/carController");
 const { cars } = require("../models");
@@ -10,10 +10,10 @@ const { cars } = require("../models");
 router.get("/", CarControl.getAllCars);
 
 router.get("/cars/create", function (req, res, next) {
-  res.render("cars/createCar");
+  res.render("cars/createCar", { title: "Create Car" });
 });
 router.get("/cars/update/:id", CarControl.editCars);
 
-router.use("/cars", require('./car'));
+router.use("/cars", require("./car"));
 
 module.exports = router;
