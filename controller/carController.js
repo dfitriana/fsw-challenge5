@@ -9,6 +9,7 @@ module.exports = class {
 		image: req.body.image
     }).then((result) => {
 		res.render("cars/createCar", { result });
+    // res.send({data: result});
       })
       .catch((err) => {
         res.status(400).send(err);
@@ -24,18 +25,35 @@ module.exports = class {
         res.status(400).send(err);
       });
   }
+  static editCars(req, res, next) {
+    const id = req.params.id;
+    cars.findByPk(id)
+      .then((result) => {
+        console.log(result)
+          res.render("cars/updateCar",{data:result});
+          // res.status(200).send(
+          //   {data : result}
+          // )
+      })
+      .catch((err) => {
+        res.status(400).send(err);
+      });
+  }
   static updateCars(req, res, next) {
     const id = req.params.id;
     cars.update(req.body, {
       where: { id: id },
     }).then((result) => {
-        if (result == 1) {
-          res.render("cars/updateCar", { result });
-        } else {
-          res.send({
-            message: `cannot update id=${id}`,
-          });
-        }
+      if (result == 1) {
+        res.redirect(`${id}`);
+        // res.status(200).send(
+        //   {data : result}
+        // )
+      } else {
+        res.send({
+          message: `cannot update id=${id}`,
+        });
+      }
       })
       .catch((err) => {
         res.status(400).send(err);
